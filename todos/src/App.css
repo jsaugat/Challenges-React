@@ -1,0 +1,60 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: fit-content;
+  padding: 30px;
+  /* background: blue; */
+}
+input{
+  padding: 8px 5px;
+  border-radius: 10px;
+  margin: 5px;
+}
+.add{
+  width: 100%;
+  /* background: red; */
+}
+.add>input{
+  width: 70%;
+}
+.add>button{
+  width: 20%;
+}
+.search{
+  width: 100%;
+  /* background: gray; */
+}
+.search > input{
+  width: 92%;
+}
+.add>button{
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 8px 5px;
+}
+button:hover{
+  background: rgb(228, 228, 228);
+}
+ul{
+  max-width: 100%;
+  list-style: none;
+  padding: 0 !important;
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  background-color: rgb(233, 233, 233);
+  padding: 10px;
+  border-radius: 30px;
+  list-style: none;
+}
+.list > button {
+  background-color: rgb(58, 58, 58);
+  color: white;
+  border-radius: 30px;
+}
+.list > button:hover{
+  background-color: rgb(96, 96, 96);
+}

@@ -1,0 +1,1 @@
+const buttonStyle = "bg-[#f3f3f3] text-black rounded-full w-fit py-2 px-3"
