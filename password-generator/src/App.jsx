@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export default function App() {
   const [range, setRange] = useState(10);
@@ -6,6 +6,8 @@ export default function App() {
   // const [alphabets, setAlphabets] = useState(false);
   const [hasSymbols, setHasSymbols] = useState(false);
   const [password, setPassword] = useState("");
+
+  const passwordRef = useRef(null);
 
   useEffect(() => {
     let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -22,12 +24,24 @@ export default function App() {
     setPassword(password);
   }, [hasNumbers, range, hasSymbols]);
 
+  const handleCopyToClipboard = async () => {
+    try {
+      // Copy the selected text to the clipboard using the Clipboard API
+      await navigator.clipboard.writeText("passwordRef.current.value");
+      // Select the text inside the input
+      passwordRef.current.select();
+    } catch (error) {
+      console.error("Unable to copy to clipboard", error);
+    }
+  };
+
   return (
     <div>
       <h1>Password Generator</h1>
       {/* INPUT */}
       <section>
         <input
+          ref={passwordRef}
           type="text"
           value={password}
           style={{
@@ -36,10 +50,10 @@ export default function App() {
             borderRadius: "6px",
             border: "none",
             paddingLeft: "0.6rem",
-            margin: "1rem 0.2rem"
+            margin: "1rem 0.2rem",
           }}
         />
-        <button>Copy</button>
+        <button onClick={handleCopyToClipboard}>Copy</button>
       </section>
       <section style={{ display: "flex", flexDirection: "column" }}>
         {/* range */}
