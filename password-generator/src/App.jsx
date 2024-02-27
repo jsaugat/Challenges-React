@@ -10,24 +10,25 @@ export default function App() {
   const passwordRef = useRef(null);
 
   useEffect(() => {
-    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let temp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let numbers = "1234567890";
     let symbols = '!@#$%&{}/?+-"';
 
-    chars += hasNumbers ? numbers : "";
-    chars += hasSymbols ? symbols : "";
+    temp += hasNumbers ? numbers : "";
+    temp += hasSymbols ? symbols : "";
 
     let password = "";
-    for (let i = 0; i < range; i++) {
-      password += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
+    password = Array.from(
+      { length: range },
+      () => temp[Math.floor(Math.random() * temp.length)]
+    ).join("");
     setPassword(password);
-  }, [hasNumbers, range, hasSymbols]);
+  }, [range, hasNumbers, hasSymbols]);
 
   const handleCopyToClipboard = async () => {
     try {
       // Copy the selected text to the clipboard using the Clipboard API
-      await navigator.clipboard.writeText("passwordRef.current.value");
+      await navigator.clipboard.writeText(passwordRef.current.value);
       // Select the text inside the input
       passwordRef.current.select();
     } catch (error) {
