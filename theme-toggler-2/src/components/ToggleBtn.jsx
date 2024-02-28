@@ -1,4 +1,4 @@
-import useTheme from "./Context";
+import useTheme from "../Context";
 
 function ToggleBtn() {
     const {themeMode, lightTheme, darkTheme} = useTheme()

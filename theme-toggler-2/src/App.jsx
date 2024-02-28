@@ -1,13 +1,10 @@
-import { useState } from "react";
-import "./App.css";
-import Header from "./Header";
-import ToggleBtn from "./ToggleBtn";
+import Header from "./components/Header";
+import ToggleBtn from "./components/ToggleBtn";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <main className="flex gap-3 h-screen w-screen items-center justify-center p-6 dark:bg-black">
+    <main className="flex gap-3 h-screen w-screen items-center justify-center p-6 dark:text-white dark:bg-black">
       <ToggleBtn />
       <Header />
     </main>

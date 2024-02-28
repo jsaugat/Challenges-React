@@ -6,13 +6,9 @@ const defaultContext = {
     darkTheme: () => {},
 };
 
-//Create Context
-export const ThemeContext = createContext(defaultContext);
+const ThemeContext = createContext(defaultContext);
+const ThemeProvider = ThemeContext.Provider;
+const useTheme = () => useContext(ThemeContext);
 
-//Context Provider
-export const ThemeProvider = ThemeContext.Provider;
-
-//Custom Hook returning useContext(ThemeContext)
-export default function useTheme() {
-  return useContext(ThemeContext);
-}
+export { ThemeContext, ThemeProvider };
+export default useTheme;
