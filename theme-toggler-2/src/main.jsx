@@ -6,12 +6,11 @@ import { ThemeProvider } from "./Context";
 
 //Theme Wrapper Component
 const ThemeEnabledApp = () => {
-  //Theme State Configuration
   const [themeMode, setThemeMode] = useState("light");
   const lightTheme = () => setThemeMode("light");
   const darkTheme = () => setThemeMode("dark");
 
-  //Theme Toggle functionality with tailwind classes light or dark to the html element/ whole document
+  //? Theme Toggle functionality with tailwind classes light or dark to the html element/ whole document
   useEffect(() => {
     const html = document.querySelector("html");
     html.classList.remove("light", "dark");
